@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Dog Park</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Virtual Dog Park</h1>
+    <p class="welcome">Welcome! Learn about three friendly dog breeds below.</p>
+  </header>
+
+  <main>
+    <section id="encyclopedia" aria-labelledby="encyclopedia-title">
+      <h2 id="encyclopedia-title">Dog Encyclopedia</h2>
+      <div class="breed-grid">
+        <article class="breed-card">
+          <img src="assets/beagle.svg" alt="Illustration of a Beagle" width="200" height="160">
+          <h3>Beagle</h3>
+          <ul>
+            <li><strong>Size:</strong> Small to medium, about 9–11 kg.</li>
+            <li><strong>Personality:</strong> Curious, cheerful and led by its nose.</li>
+            <li><strong>Care:</strong> Needs daily walks and sniffing games. Keep food out of reach!</li>
+          </ul>
+        </article>
+
+        <article class="breed-card">
+          <img src="assets/golden-retriever.svg" alt="Illustration of a Golden Retriever" width="200" height="160">
+          <h3>Golden Retriever</h3>
+          <ul>
+            <li><strong>Size:</strong> Large, about 25–34 kg.</li>
+            <li><strong>Personality:</strong> Gentle, loyal and eager to please.</li>
+            <li><strong>Care:</strong> Loves swimming and fetch. Brush its thick coat a few times a week.</li>
+          </ul>
+        </article>
+
+        <article class="breed-card">
+          <img src="assets/poodle.svg" alt="Illustration of a Poodle" width="200" height="160">
+          <h3>Poodle</h3>
+          <ul>
+            <li><strong>Size:</strong> Comes in toy, miniature and standard sizes.</li>
+            <li><strong>Personality:</strong> Smart, playful and quick to learn tricks.</li>
+            <li><strong>Care:</strong> Curly coat needs regular brushing and trims. Enjoys puzzle toys.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="my-dog" aria-labelledby="my-dog-title">
+      <h2 id="my-dog-title">My Virtual Dog</h2>
+
+      <!-- Adoption form: shown when no dog has been adopted -->
+      <form id="adopt-form" class="panel" novalidate>
+        <div class="field">
+          <label for="breed-select">Choose a breed</label>
+          <select id="breed-select" name="breed">
+            <option value="Beagle">Beagle</option>
+            <option value="Golden Retriever">Golden Retriever</option>
+            <option value="Poodle">Poodle</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dog-name">Dog name (1–20 characters)</label>
+          <input id="dog-name" name="dogName" type="text" maxlength="20" autocomplete="off" aria-describedby="name-message">
+        </div>
+        <p id="name-message" class="message" role="alert"></p>
+        <button type="submit">Adopt</button>
+      </form>
+
+      <!-- Dog panel: shown after adoption -->
+      <div id="dog-panel" class="panel" hidden>
+        <div class="dog-stage-frame">
+          <img id="dog-image" src="assets/beagle.svg" alt="" width="200" height="160">
+        </div>
+        <div class="growth">
+          <p class="growth-label">Growth: <span id="growth-text"></span></p>
+          <div class="growth-bar" role="progressbar" aria-labelledby="growth-text" aria-valuemin="1" aria-valuemax="3" id="growth-bar">
+            <div class="growth-fill" id="growth-fill"></div>
+          </div>
+        </div>
+        <dl class="dog-stats">
+          <dt>Name</dt><dd id="dog-name-display"></dd>
+          <dt>Breed</dt><dd id="dog-breed-display"></dd>
+          <dt>Day</dt><dd id="dog-day-display"></dd>
+          <dt>Growth stage</dt><dd id="dog-stage-display"></dd>
+          <dt>Happiness</dt><dd><span id="dog-happiness-display"></span> / 100</dd>
+        </dl>
+        <div class="actions">
+          <button type="button" id="feed-button">Feed</button>
+          <button type="button" id="play-button">Play</button>
+          <button type="button" id="next-day-button">Next Day</button>
+          <button type="button" id="start-over-button" class="secondary">Start Over</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Illustrations are simple drawings made for this project, not real dog photographs.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
